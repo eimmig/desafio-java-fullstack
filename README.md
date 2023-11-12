@@ -8,8 +8,8 @@
 
 <h2>Sumário</h2>
 <ul>
- <li><a href="#introducao">Introdução</a></li>
- <li><a href="#sobre_o_projeto">Sobre o Projeto</a></li>
+ <li><a href="#introdução">Introdução</a></li>
+ <li><a href="#sobre">Sobre o Projeto</a></li>
  <li><a href="#tecnologias">Tecnologias Utilizadas</a></li>
  <li><a href="#diagrama">Diagrama de Classes</a></li>
  <li><a href="#regras">Regras de Negócio</a></li>
@@ -21,7 +21,7 @@
 
 Projeto de desafio Desenvolvedor Java FullStack. Para criação desse projeto foi considerado uma aplicação que fosse bonita, simples porém moderna. O tema fora designado junto aos requisitos propostos, no qual eram a utilização de algumas tecnologias juntamente com a elaboração do projeto web.
 
-<h2 id="sobre_o_projeto">Sobre o Projeto</h2>
+## Sobre 
 
 O Projeto TaskForge trata-se de uma aplicação FullStack em que se dá uma plataforma para gerenciamento de projetos e funcionários os quais são diretamente vinculados uns aos outros por intemédio de uma tabela denominada ```membros```. A aplicação possui uma estrutura de CRUD com os principais métodos HTTP (GET/PUT/UPDATE/DELETE).
 O sistema foi desenvolvido em Java e Spring com as configurações realizadas com Spring Boot, as entidades foram mapeadas utilizando Spring Data Jpa e Hibernate e os dados foram persistidos no Banco de Dados PostgresSQL.
