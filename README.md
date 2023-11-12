@@ -1,10 +1,9 @@
 <img src="https://img.shields.io/badge/STATUS-CONCLUÍDO-green"/>
 
 <p align="center">
- <img src="client/gerenciador_de_projetos/src/assets/taskforge-high-resolution-logo-transparent.png" width=20%>
+ <img src="client/gerenciador_de_projetos/src/assets/taskforge-high-resolution-logo-transparent.png" width=30%>
 </p>
 
-<h1 align="center">🛠️ TaskForge 🛠️</h1>
 
 <h2>Sumário</h2>
 <ul>
