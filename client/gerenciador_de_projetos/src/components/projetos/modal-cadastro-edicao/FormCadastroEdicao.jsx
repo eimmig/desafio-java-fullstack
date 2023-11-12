@@ -79,6 +79,7 @@ const FormEdicaoCadastro = React.forwardRef(({ projeto }, ref) => {
               name="nome"
               value={formValues.nome}
               onChange={handleInputChange}
+              maxLength={200}
             />
           </FloatingLabel>
 
@@ -116,6 +117,7 @@ const FormEdicaoCadastro = React.forwardRef(({ projeto }, ref) => {
               name="descricao"
               value={formValues.descricao}
               onChange={handleInputChange}
+              maxLength={5000}
             />
           </FloatingLabel>
 

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Form, FloatingLabel } from 'react-bootstrap';
+import InputMask from 'react-input-mask';
 
 
 const FormEdicaoCadastro = React.forwardRef(({ pessoa }, ref) => {
@@ -68,6 +69,7 @@ const FormEdicaoCadastro = React.forwardRef(({ pessoa }, ref) => {
         name="nome"
         value={formValues.nome}
         onChange={handleInputChange}
+        maxLength={100}
       />
     </FloatingLabel>
 
@@ -81,13 +83,21 @@ const FormEdicaoCadastro = React.forwardRef(({ pessoa }, ref) => {
     </FloatingLabel>
 
     <FloatingLabel className="mb-2" controlId="cpf" label="CPF">
-      <Form.Control
-        type="text"
-        placeholder="CPF"
-        name="cpf"
+      <InputMask
+        mask="999.999.999-99"
+        maskChar=""
         value={formValues.cpf}
         onChange={handleInputChange}
-      />
+      >
+        {(inputProps) => (
+          <Form.Control
+            type="text"
+            placeholder="CPF"
+            name="cpf"
+            {...inputProps}
+          />
+        )}
+      </InputMask>
     </FloatingLabel>
 
     <Form.Check

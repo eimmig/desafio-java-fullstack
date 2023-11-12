@@ -74,7 +74,7 @@ const Sidebar = () => {
               </li>
             </ul>
             <li className="github-box p-0" onClick={() => setIsSidebarClosed(false)}>
-                <a href="https://github.com/eimmig/desafio-java-fullstackt" target="_blank">
+                <a href="https://github.com/eimmig/desafio-java-fullstack" target="_blank">
                   <i className="fa-brands fa-github icon"></i>
                   <span className="text nav-text">GitHub</span>
                 </a>
