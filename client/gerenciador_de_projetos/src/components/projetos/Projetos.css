@@ -1,0 +1,21 @@
+.small-font {
+    font-size: 15px;
+}
+
+.small-button {
+    padding: 5px 10px; 
+    font-size: 12px;
+  }
+  
+.btn-projetos:hover {
+    background-color: var(--primari-color)
+}
+
+body.black .btn-projetos:hover {
+    background-color: var(--togle-color);
+    color: var(--sidebar-color)
+}
+
+body.black .input-projeto {
+    background: var(--togle-color); 
+}

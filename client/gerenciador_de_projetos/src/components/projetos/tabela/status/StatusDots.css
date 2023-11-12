@@ -1,0 +1,17 @@
+.status-dot {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    display: inline-block;
+    margin-right: 8px;
+  }
+  
+  .status-1 { background-color: #FF5733; }
+  .status-2 { background-color: #33FF57; }
+  .status-3 { background-color: #5733FF; }
+  .status-4 { background-color: #33FFE0; }
+  .status-5 { background-color: #FF33E0; }
+  .status-6 { background-color: #00791a; }
+  .status-7 { background-color: #FFBB33; }
+  .status-8 { background-color: #ff3333; }
+  

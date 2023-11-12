@@ -1,2 +1,7 @@
-package com.desafiojavareact.gerenciadordeprojetos.dto;public class FuncionarioDTO {
+package com.desafiojavareact.gerenciadordeprojetos.dto;
+
+public record FuncionarioDTO(
+        Long value,
+        String label
+) {
 }

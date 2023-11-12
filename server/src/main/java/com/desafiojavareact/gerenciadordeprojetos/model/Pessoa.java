@@ -1,7 +1,7 @@
 package com.desafiojavareact.gerenciadordeprojetos.model;
 
 import com.desafiojavareact.gerenciadordeprojetos.dto.PessoaRequestDTO;
-import com.desafiojavareact.gerenciadordeprojetos.dto.ProjetoRequestDTO;
+import com.desafiojavareact.gerenciadordeprojetos.dto.PessoaRequestNomeECargoDTO;
 import jakarta.persistence.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -39,6 +39,26 @@ public class Pessoa {
         this.cpf = data.cpf();
         this.funcionario = data.funcionario();
         this.gerente = data.gerente();
+    }
+
+    public Pessoa(Pessoa pessoa) {
+        this.id = pessoa.getId();
+        this.nome = pessoa.getNome();
+        this.dataNascimento = pessoa.getDataNascimento();
+        this.cpf = pessoa.getCpf();
+        this.funcionario = pessoa.isFuncionario();
+        this.gerente = pessoa.isGerente();
+    }
+
+    public Pessoa(PessoaRequestNomeECargoDTO pessoaRequestNomeECargoDTO) {
+        this.nome = pessoaRequestNomeECargoDTO.nome();
+        if (pessoaRequestNomeECargoDTO.cargo().equals("funcionario")) {
+            this.funcionario = true;
+            this.gerente = false;
+        } else {
+            this.funcionario = false;
+            this.gerente = true;
+        }
     }
 }
 

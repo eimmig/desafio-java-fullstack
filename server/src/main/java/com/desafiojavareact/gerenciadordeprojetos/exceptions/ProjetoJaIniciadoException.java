@@ -1,20 +1,20 @@
 package com.desafiojavareact.gerenciadordeprojetos.exceptions;
 
-public class ExclusaoDeUsuarioException extends RuntimeException {
+public class ProjetoJaIniciadoException extends RuntimeException {
 
-    public ExclusaoDeUsuarioException() {
+    public ProjetoJaIniciadoException() {
         super();
     }
 
-    public ExclusaoDeUsuarioException(String message) {
+    public ProjetoJaIniciadoException(String message) {
         super(message);
     }
 
-    public ExclusaoDeUsuarioException(String message, Throwable cause) {
+    public ProjetoJaIniciadoException(String message, Throwable cause) {
         super(message, cause);
     }
 
-    public ExclusaoDeUsuarioException(Throwable cause) {
+    public ProjetoJaIniciadoException(Throwable cause) {
         super(cause);
     }
 }

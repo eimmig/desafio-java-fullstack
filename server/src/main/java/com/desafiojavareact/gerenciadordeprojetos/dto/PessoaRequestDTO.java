@@ -7,7 +7,9 @@ public record PessoaRequestDTO(
         Date dataNascimento,
         String cpf,
         Boolean funcionario,
-        Boolean gerente
+        Boolean gerente,
+
+        String cargo
 ) {
 
 }

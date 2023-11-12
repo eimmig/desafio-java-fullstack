@@ -1,0 +1,30 @@
+body.dark {
+    --body-color: #18101A;
+    --sidebar-color: #242526;
+    --primari-color: #3A3B3C;
+    --primari-color-light: #3A3B3C;
+    --togle-color: #FFF;
+    --text-color: #CCC;
+}
+
+:root {
+
+    /*COLORS*/
+
+    --body-color: #E4E9F7;
+    --sidebar-color: #FFF;
+    --primari-color: #695CFE;
+    --primari-color-light: #F6F5FF;
+    --togle-color: #DDDD;
+    --text-color: #707070;
+
+    /* Transition */
+    --tran-02: all 0.2s ease;
+    --tran-03: all 0.3s ease;
+    --tran-04: all 0.4s ease;
+    --tran-05: all 0.5s ease;
+}
+
+.Toastify__toast-body {
+    font-size: 16px; 
+}

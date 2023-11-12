@@ -1,0 +1,15 @@
+.legend-container {
+  display: flex;
+}
+  
+.legend-item {
+  display: flexbox;
+  text-align: center;
+  font-size: 12px;
+  margin-right:10%;
+}
+
+.legend-text {
+  margin-left: 25px;
+}
+

@@ -3,9 +3,11 @@ package com.desafiojavareact.gerenciadordeprojetos.model;
 import com.desafiojavareact.gerenciadordeprojetos.dto.ProjetoRequestDTO;
 import com.desafiojavareact.gerenciadordeprojetos.enums.RiscoProjeto;
 import com.desafiojavareact.gerenciadordeprojetos.enums.StatusProjeto;
+import com.desafiojavareact.gerenciadordeprojetos.service.PessoaService;
 import jakarta.persistence.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.Date;
 
@@ -45,11 +47,12 @@ public class Projeto {
     @Column(name = "risco", length = 45)
     private RiscoProjeto risco;
 
-    @Column(name = "idgerente", nullable = false)
-    private Long idGerente;
+    @OneToOne
+    @JoinColumn(name = "idgerente")
+    private Pessoa idGerente;
 
     // Construtor
-    public Projeto(ProjetoRequestDTO data) {
+    public Projeto(ProjetoRequestDTO data, PessoaService pessoaService) {
         this.nome = data.nome();
         this.dataInicio = data.dataInicio();
         this.dataPrevisaoFim = data.dataPrevisaoFim();
@@ -58,7 +61,20 @@ public class Projeto {
         this.status = data.status();
         this.orcamento = data.orcamento();
         this.risco = data.risco();
-        this.idGerente = data.idGerente();
+        this.idGerente = pessoaService.buscarPorId(data.idGerente());
+    }
+
+    public Projeto (Projeto projeto) {
+        this.id = projeto.getId();
+        this.nome = projeto.getNome();
+        this.dataInicio = projeto.getDataInicio();
+        this.dataPrevisaoFim = projeto.getDataPrevisaoFim();
+        this.dataFim = projeto.getDataFim();
+        this.descricao =projeto.getDescricao();
+        this.status = projeto.getStatus();
+        this.orcamento = projeto.getOrcamento();
+        this.risco = projeto.getRisco();
+        this.idGerente = projeto.getIdGerente();
     }
 }
 

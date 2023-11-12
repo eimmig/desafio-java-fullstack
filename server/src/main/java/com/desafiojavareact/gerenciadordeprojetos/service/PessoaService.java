@@ -4,8 +4,9 @@ import com.desafiojavareact.gerenciadordeprojetos.dao.MembrosRepository;
 import com.desafiojavareact.gerenciadordeprojetos.dao.PessoaRepository;
 import com.desafiojavareact.gerenciadordeprojetos.dao.ProjetoRepository;
 import com.desafiojavareact.gerenciadordeprojetos.dto.PessoaRequestDTO;
+import com.desafiojavareact.gerenciadordeprojetos.dto.PessoaStats;
 import com.desafiojavareact.gerenciadordeprojetos.enums.StatusProjeto;
-import com.desafiojavareact.gerenciadordeprojetos.exceptions.RegraDeNegocioException;
+import com.desafiojavareact.gerenciadordeprojetos.exceptions.ExclusaoDeUsuarioException;
 import com.desafiojavareact.gerenciadordeprojetos.model.Membros;
 import com.desafiojavareact.gerenciadordeprojetos.model.Pessoa;
 import com.desafiojavareact.gerenciadordeprojetos.model.Projeto;
@@ -20,15 +21,9 @@ public class PessoaService {
 
     private final PessoaRepository pessoaRepository;
 
-    private final MembrosRepository membrosRepository;
-
-    private final ProjetoRepository projetoRepository;
-
     @Autowired
-    public PessoaService(PessoaRepository pessoaRepository, MembrosRepository membrosRepository, ProjetoRepository projetoRepository) {
+    public PessoaService(PessoaRepository pessoaRepository) {
         this.pessoaRepository = pessoaRepository;
-        this.membrosRepository = membrosRepository;
-        this.projetoRepository = projetoRepository;
     }
 
     public Pessoa salvarPessoa(Pessoa pessoa) {
@@ -56,20 +51,20 @@ public class PessoaService {
         pessoaRepository.deleteById(id);
     }
 
-    public List<Projeto> buscarProjetos(Pessoa pessoa) {
-
-        List<Membros> membros = membrosRepository.findByPessoaId(pessoa.getId());
-
-        List<Long> projetoIds = membros.stream()
-                .map(membro -> membro.getProjeto().getId())
-                .collect(Collectors.toList());
-
-        return projetoRepository.findAllById(projetoIds);
+    public List<Pessoa> buscarGerentes() {
+        return pessoaRepository.findByGerenteIsTrue();
     }
 
-    public void validarPossibilidadeExclusao(Projeto projeto) {
-        if (!(projeto.getStatus() == StatusProjeto.EM_ANALISE || projeto.getStatus() == StatusProjeto.ANALISE_REALIZADA || projeto.getStatus() == StatusProjeto.ANALISE_APROVADA)) {
-            throw new RegraDeNegocioException("Projetos já inicializados não podem ser excluídos!");
-        }
+    public List<Pessoa> buscarFuncionarios() {
+        return pessoaRepository.findByFuncionarioIsTrue();
+    }
+
+
+    public PessoaStats getStats() {
+        long totalPessoas = pessoaRepository.count();
+        long totalGerentes = pessoaRepository.countByGerente(true);
+        long totalFuncionarios = pessoaRepository.countByFuncionario(true);
+
+        return new PessoaStats(totalPessoas, totalGerentes, totalFuncionarios);
     }
 }
