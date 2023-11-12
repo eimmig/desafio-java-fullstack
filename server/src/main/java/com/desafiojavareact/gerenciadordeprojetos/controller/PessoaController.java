@@ -4,6 +4,7 @@ import com.desafiojavareact.gerenciadordeprojetos.dto.PessoaRequestDTO;
 import com.desafiojavareact.gerenciadordeprojetos.dto.PessoaRequestNomeECargoDTO;
 import com.desafiojavareact.gerenciadordeprojetos.dto.PessoaStats;
 import com.desafiojavareact.gerenciadordeprojetos.exceptions.ExclusaoDeUsuarioException;
+import com.desafiojavareact.gerenciadordeprojetos.exceptions.cpfInvalidoException;
 import com.desafiojavareact.gerenciadordeprojetos.model.Membros;
 import com.desafiojavareact.gerenciadordeprojetos.model.Pessoa;
 import com.desafiojavareact.gerenciadordeprojetos.model.Projeto;
@@ -35,8 +36,16 @@ public class PessoaController {
     @PostMapping("/save")
     public ResponseEntity<String> salvarPessoa(@RequestBody PessoaRequestDTO pessoaRequestDTO) {
         try {
+            Boolean cpfValido = pessoaService.validarCPF(pessoaRequestDTO.cpf());
+
+            if (!cpfValido) {
+                throw new cpfInvalidoException("Por favor cadastre um CPF válido");
+            }
+
             pessoaService.salvarPessoa(new Pessoa(pessoaRequestDTO));
             return ResponseEntity.ok("Pessoa salva com sucesso!");
+        } catch (cpfInvalidoException e) {
+            return ResponseEntity.status(HttpStatus.NOT_ACCEPTABLE).body(e.getMessage());
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Erro ao salvar pessoa: " + e.getMessage());
         }
@@ -108,9 +117,16 @@ public class PessoaController {
     @PutMapping("/{pessoaId}")
     public ResponseEntity<String> atualizarPessoa(@PathVariable Long pessoaId, @RequestBody PessoaRequestDTO pessoaRequestDTO) {
         try {
+            Boolean cpfValido = pessoaService.validarCPF(pessoaRequestDTO.cpf());
+
+            if (!cpfValido) {
+                throw new cpfInvalidoException("Por favor cadastre um CPF válido");
+            }
             Pessoa pessoa = pessoaService.buscarPorId(pessoaId);
             pessoaService.atualizarPessoa(pessoa, pessoaRequestDTO);
             return ResponseEntity.ok("Pessoa atualizada com sucesso!");
+        } catch (cpfInvalidoException e) {
+            return ResponseEntity.status(HttpStatus.NOT_ACCEPTABLE).body(e.getMessage());
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Erro ao atualizar pessoa: " + e.getMessage());
         }

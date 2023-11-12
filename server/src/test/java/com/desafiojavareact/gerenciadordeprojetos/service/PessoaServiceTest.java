@@ -1,11 +1,7 @@
 package com.desafiojavareact.gerenciadordeprojetos.service;
 
 import com.desafiojavareact.gerenciadordeprojetos.dto.PessoaRequestDTO;
-import com.desafiojavareact.gerenciadordeprojetos.dto.ProjetoRequestDTO;
-import com.desafiojavareact.gerenciadordeprojetos.enums.RiscoProjeto;
-import com.desafiojavareact.gerenciadordeprojetos.enums.StatusProjeto;
 import com.desafiojavareact.gerenciadordeprojetos.model.Pessoa;
-import com.desafiojavareact.gerenciadordeprojetos.model.Projeto;
 import jakarta.persistence.EntityManager;
 import jakarta.transaction.Transactional;
 import org.junit.jupiter.api.DisplayName;
@@ -17,7 +13,6 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ActiveProfiles;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.jupiter.api.Assertions.*;
 
 import java.util.Date;
 
@@ -43,6 +38,32 @@ class PessoaServiceTest {
 
         assertThat(!pessoaClone.equals(pessoa));
     }
+
+
+    @Test
+    @Transactional
+    @DisplayName("Validar CPF Valido.")
+    void validarCpfValido() {
+        PessoaRequestDTO pessoaRequestDTO = new PessoaRequestDTO("Teste 1", new Date(2002-06-13), "614.991.490-93", false, true, "");
+
+        Boolean cpfValido = pessoaService.validarCPF(pessoaRequestDTO.cpf());
+
+        assertThat(cpfValido);
+    }
+
+
+    @Test
+    @Transactional
+    @DisplayName("Validar CPF Invalido.")
+    void validarCpfInalido() {
+        PessoaRequestDTO pessoaRequestDTO = new PessoaRequestDTO("Teste 1", new Date(2002-06-13), "123-456-789-00", false, true, "");
+
+        Boolean cpfValido = pessoaService.validarCPF(pessoaRequestDTO.cpf());
+
+        assertThat(!cpfValido);
+    }
+
+
 
 
     private Pessoa createPessoa() {

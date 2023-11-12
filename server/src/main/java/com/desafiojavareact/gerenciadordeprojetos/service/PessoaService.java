@@ -67,4 +67,31 @@ public class PessoaService {
 
         return new PessoaStats(totalPessoas, totalGerentes, totalFuncionarios);
     }
+
+    public boolean validarCPF(String cpf) {
+        String cpfLimpo = cpf.replaceAll("[^0-9]", "");
+
+        if (cpfLimpo.length() != 11) {
+            return false;
+        }
+
+        if (cpfLimpo.matches("(\\d)\\1{10}")) {
+            return false;
+        }
+
+        int digito1 = calcularDigito(cpfLimpo.substring(0, 9));
+
+        int digito2 = calcularDigito(cpfLimpo.substring(0, 9) + digito1);
+
+        return cpfLimpo.endsWith(digito1 + Integer.toString(digito2));
+    }
+
+    private int calcularDigito(String base) {
+        int soma = 0;
+        for (int i = base.length() - 1, fator = 2; i >= 0; i--, fator++) {
+            soma += Character.getNumericValue(base.charAt(i)) * fator;
+        }
+        int resto = soma % 11;
+        return resto < 2 ? 0 : 11 - resto;
+    }
 }

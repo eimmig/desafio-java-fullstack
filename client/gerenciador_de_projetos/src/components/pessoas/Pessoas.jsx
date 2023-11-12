@@ -71,7 +71,8 @@ const GridPessoas = () => {
       setTableKey((prevKey) => prevKey + 1);
       handleCloseModal();
     } catch (error) {
-      toast.error(`Erro ao salvar o pessoa: ${error.message}`);
+      const message = error.response.data ? error.response.data : error.message;
+      toast.error(`Erro ao salvar o pessoa: ${message}`);
       console.error('Erro ao salvar o pessoa:', error);
     }
   };
