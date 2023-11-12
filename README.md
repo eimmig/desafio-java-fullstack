@@ -30,7 +30,7 @@ Para gerenciamento de dependências foi utilizado o Maven, juntamente com o jUni
 
 Além do mais, foi usado o Design Pattern MVC, empregando o uso da camada de Repository com a função de agir como intermédio entre outras camadas, o Service para proteger a lógica de negócios da aplicação, os Controllers com a responsabilidade de processar as requisições e gerar as respostas, inclusive, também foi utilizado o padrão de arquitetura de DTOs (Data Transfer Objects), para aumentar a segurança das classes na transferência de dados. Além disso, foram criadas Exceptions personalizadas para gerar logs, e mensagens de erros mais coerentes ao usuário.
 
-No Frontend as tecnologias utilizadas foram React.js, inicializado pelo Vite, juntamente do Boodstrap, Toastr do React-tostfy e ícones do Font Awesome.
+No Frontend as tecnologias utilizadas foram React.js, inicializado pelo Vite, juntamente do Boodstrap, Toastr do React-Toastify e ícones do Font Awesome.
 
 Para a parte de banco de dados foi utilizado o banco de dados PostgreSQL para elaboração do projeto, seguindo o modelo de tabelas proposto. Além disso, foi utilizado banco de dados H2 para a realização dos testes - dessa maneira a utilização dos testes torna-se mais eficiente por conta da complexidade e estrutura nescessária para comportar um banco de dados de homologação por exemplo-.
 
