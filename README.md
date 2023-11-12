@@ -138,7 +138,7 @@ Método POST para criar um novo Membro
 
 <p>Para executar os endpoints através do Postman, utilize esta Collection: 
 
-[![Run in Postman](https://run.pstmn.io/button.svg)](https://elements.getpostman.com/redirect?entityId=24093493-7dc8e626-46ec-481b-9042-bb802887b86e&entityType=collection) </p>
+[<img src="https://run.pstmn.io/button.svg" alt="Run In Postman" style="width: 128px; height: 32px;">](https://god.gw.postman.com/run-collection/24093493-7dc8e626-46ec-481b-9042-bb802887b86e?action=collection%2Ffork&source=rip_markdown&collection-url=entityId%3D24093493-7dc8e626-46ec-481b-9042-bb802887b86e%26entityType%3Dcollection%26workspaceId%3Dcc73ff0e-3ee2-47cb-98d5-fe684a90fa53) </p>
  
 ## Melhorias 
 
