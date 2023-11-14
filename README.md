@@ -25,7 +25,7 @@ Projeto de desafio Desenvolvedor Java FullStack. Para criação desse projeto fo
 ## Sobre 
 
 O Projeto TaskForge trata-se de uma aplicação FullStack em que se dá uma plataforma para gerenciamento de projetos e funcionários os quais são diretamente vinculados uns aos outros por intemédio de uma tabela denominada ```membros```. A aplicação possui uma estrutura de CRUD com os principais métodos HTTP (GET/PUT/UPDATE/DELETE).
-O sistema foi desenvolvido em Java e Spring com as configurações realizadas com Spring Boot, as entidades foram mapeadas utilizando Spring Data Jpa e Hibernate e os dados foram persistidos no Banco de Dados PostgresSQL.
+O sistema foi desenvolvido em Java e Spring com as configurações realizadas com Spring Boot, as entidades foram mapeadas utilizando Spring Data Jpa e Hibernate e os dados foram persistidos no Banco de Dados PostgreSQL.
 
 Para gerenciamento de dependências foi utilizado o Maven, juntamente com o jUnit para elaboração dos testes de services e outras classes as quais não sofriam controle direto da entidade JPA.
 
