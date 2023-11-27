@@ -45,7 +45,7 @@ const Sidebar = () => {
               <img src="taskforge-favicon-color.png" alt="Logo" />
             </span>
             <div className="text header-text">
-              <span className="name">ForgeTask</span>
+              <span className="name">TaskForge</span>
             </div>
           </div>
           <i className="fa-solid fa-angle-right toggle" onClick={toggleSidebar}></i>
