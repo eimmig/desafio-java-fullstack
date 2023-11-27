@@ -6,7 +6,7 @@ import BodyObserver from './../../../observer/BodyObserver';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import StatusDots from './status/StatusDots';
-import Legend from './status/legenda';
+import Legend from './status/Legenda';
 
 const ProjetosTable = React.forwardRef(({ keyProp, editarProjeto }, ref) => {
   const [isDarkMode, setIsDarkMode] = useState(false);
